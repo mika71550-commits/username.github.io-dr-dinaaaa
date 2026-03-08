@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dr. Dina — Brand Direction 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Montserrat:wght@200;300;400;500;600&family=Tajawal:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --black: #080808;
+  --rose: #C4717A;
+  --rose-dark: #8B3D45;
+  --rose-light: #E8A0A8;
+  --cream: #F5EDE8;
+  --gold: #C9A84C;
+  --white: #fff;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--white);
+}
+
+/* ════════════════════════════
+   PROGRESS BAR
+════════════════════════════ */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--rose-dark), var(--rose), var(--gold));
+  z-index: 999;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ════════════════════════════
+   SLIDE SYSTEM
+════════════════════════════ */
+.slides-wrap {
+  width: 100%;
+}
+
+.slide {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ════════════════════════════
+   SLIDE 1 — COVER
+════════════════════════════ */
+.s-cover {
+  background: var(--black);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 28px;
+  gap: 0;
+}
+
+.cover-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.cover-glow {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,61,69,0.35) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: glowPulse 4s ease infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%,-50%) scale(1.2); opacity: 1; }
+}
+
+.cover-ring {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(196,113,122,0.15);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ringExpand 4s ease infinite;
+}
+
+.cover-ring-2 {
+  width: 280px; height: 280px;
+  animation-delay: 1s;
+  border-color: rgba(196,113,122,0.08);
+}
+
+@keyframes ringExpand {
+  0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%,-50%) scale(1.05); opacity: 0.5; }
+}
+
+.cover-label {
+  font-size: 8px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--rose);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.cover-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 13vw;
+  font-weight: 900;
+  line-height: 0.9;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 0.9s ease 0.5s both;
+}
+
+.cover-name em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose);
+  font-size: 0.45em;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+
+.cover-divider {
+  width: 60px; height: 1px;
+  background: linear-gradient(to right, var(--rose), var(--gold));
+  margin: 24px auto;
+  position: relative; z-index: 2;
+  animation: lineGrow 1s ease 1s both;
+}
+
+@keyframes lineGrow { from { width: 0; } to { width: 60px; } }
+
+.cover-sub {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  position: relative; z-index: 2;
+  animation: fadeUp 0.8s ease 1.2s both;
+}
+
+.cover-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  position: relative; z-index: 2;
+  animation: fadeUp 0.8s ease 1.5s both;
+}
+
+.cover-tag-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(196,113,122,0.25);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  animation: fadeUp 0.8s ease 2s both;
+}
+
+.scroll-hint span {
+  font-size: 7px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+.scroll-dot {
+  width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--rose), transparent);
+  animation: scrollBounce 2s ease infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════
+   SECTION HEADERS
+════════════════════════════ */
+.sec-header {
+  padding: 56px 28px 32px;
+}
+
+.sec-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 10px;
+  color: var(--rose);
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--white);
+}
+
+.sec-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose);
+}
+
+.sec-desc {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.9;
+  margin-top: 12px;
+  direction: rtl;
+  text-align: right;
+}
+
+.sec-desc-en {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.8;
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* ════════════════════════════
+   SLIDE 2 — THE CONCEPT
+════════════════════════════ */
+.s-concept {
+  background: var(--black);
+  padding-bottom: 60px;
+}
+
+.concept-visual {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.concept-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  filter: saturate(0.6) contrast(1.1);
+}
+
+.concept-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.0) 30%, rgba(8,8,8,0.8) 100%);
+}
+
+.concept-visual-text {
+  position: absolute;
+  bottom: 20px;
+  left: 28px;
+  right: 28px;
+}
+
+.concept-visual-label {
+  font-size: 7px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 4px;
+}
+
+.concept-visual-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+
+.cards-stack {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.concept-card {
+  background: #111;
+  border-radius: 16px;
+  padding: 24px 22px;
+  border: 1px solid #1e1e1e;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.concept-card:active {
+  transform: scale(0.98);
+  border-color: var(--rose-dark);
+}
+
+.concept-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--rose);
+  border-radius: 3px 0 0 3px;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.concept-card.open::before { transform: scaleY(1); }
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(196,113,122,0.1);
+  border: 1px solid rgba(196,113,122,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: var(--rose-light);
+  flex-shrink: 0;
+}
+
+.card-title-wrap { flex: 1; padding: 0 12px; }
+
+.card-title-en {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.card-title-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  direction: rtl;
+  text-align: right;
+}
+
+.card-arrow {
+  font-size: 16px;
+  color: rgba(255,255,255,0.2);
+  transition: transform 0.3s, color 0.3s;
+  flex-shrink: 0;
+}
+
+.concept-card.open .card-arrow {
+  transform: rotate(90deg);
+  color: var(--rose);
+}
+
+.card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.concept-card.open .card-body { max-height: 300px; }
+
+.card-body-inner {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 16px;
+}
+
+.card-text-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 2;
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.card-text-en {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.8;
+}
+
+.card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.card-pill {
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(196,113,122,0.3);
+  color: var(--rose-light);
+  background: rgba(196,113,122,0.08);
+}
+
+/* ════════════════════════════
+   SLIDE 3 — COLORS
+════════════════════════════ */
+.s-colors { background: #050505; padding-bottom: 60px; }
+
+.palette-strip {
+  display: flex;
+  height: 80px;
+  margin: 0 20px;
+  border-radius: 14px;
+  overflow: hidden;
+  gap: 2px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+.ps {
+  flex: 1;
+  position: relative;
+  transition: flex 0.35s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+
+.ps.big { flex: 2; }
+.ps:active, .ps.tapped { flex: 3; }
+
+.ps-info {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ps.tapped .ps-info { opacity: 1; }
+
+.ps-name {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ps-hex {
+  font-size: 8px;
+  font-weight: 300;
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}
+
+.color-cards {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.color-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid #1a1a1a;
+}
+
+.cc-bar { height: 5px; }
+
+.cc-body { padding: 16px 14px; }
+
+.cc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.cc-hex {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.cc-desc-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.cc-pct {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  margin-top: 10px;
+  line-height: 1;
+}
+
+.cc-pct-label {
+  font-size: 7px;
+  letter-spacing: 2px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Combo strip */
+.combo-strip {
+  margin: 0 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.combo-item {
+  flex: 1;
+  height: 70px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.combo-item-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ════════════════════════════
+   SLIDE 4 — POST MOCKUPS
+════════════════════════════ */
+.s-posts { background: var(--black); padding-bottom: 60px; }
+
+.posts-carousel {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Post mockup card */
+.post-mock {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #1a1a1a;
+  background: #0a0a0a;
+  position: relative;
+}
+
+/* Post type 1: Magazine Cover style */
+.pm-cover {
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pm-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  filter: saturate(0.7) contrast(1.1);
+}
+
+.pm-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, transparent 30%, rgba(8,8,8,0.75) 70%, rgba(8,8,8,0.95) 100%);
+}
+
+.pm-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.pm-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.pm-issue {
+  font-size: 7px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.pm-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  z-index: 3;
+}
+
+.pm-tag-label {
+  font-size: 7px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pm-tag-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--rose);
+}
+
+.pm-big-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.pm-big-title em {
+  font-style: italic;
+  color: var(--rose-light);
+  font-weight: 400;
+}
+
+.pm-caption {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.8;
+  margin-top: 4px;
+}
+
+/* Post type 2: Before/After */
+.pm-ba {
+  height: 260px;
+  position: relative;
+  display: flex;
+}
+
+.pm-ba-half {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.pm-ba-half img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: saturate(0.5);
+}
+
+.pm-ba-half-overlay-before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(8,8,8,0.6) 0%, transparent 60%);
+}
+
+.pm-ba-half-overlay-after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(315deg, rgba(139,61,69,0.4) 0%, transparent 60%);
+}
+
+.pm-ba-label {
+  position: absolute;
+  bottom: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.pm-ba-label.before { left: 14px; color: rgba(255,255,255,0.5); }
+.pm-ba-label.after { right: 14px; color: rgba(196,113,122,0.7); }
+
+.pm-ba-tag {
+  position: absolute;
+  top: 14px;
+  font-size: 7px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+
+.pm-ba-tag.before {
+  left: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+}
+
+.pm-ba-tag.after {
+  right: 14px;
+  background: rgba(196,113,122,0.1);
+  border: 1px solid rgba(196,113,122,0.3);
+  color: var(--rose-light);
+}
+
+.pm-ba-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.pm-ba-badge {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--rose-dark);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 0 20px rgba(196,113,122,0.4);
+}
+
+.pm-ba-divider {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, var(--rose) 30%, var(--rose) 70%, transparent);
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+/* Post footer info */
+.pm-footer {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.pm-proc {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--cream);
+}
+
+.pm-proc-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.3);
+  direction: rtl;
+}
+
+.pm-handle {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--rose);
+  text-transform: uppercase;
+}
+
+/* Post type 3: Stat / Quote */
+.pm-stat {
+  padding: 30px 24px;
+  background: var(--rose);
+  position: relative;
+  overflow: hidden;
+}
+
+.pm-stat::before {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.pm-stat::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.pm-stat-eyebrow {
+  font-size: 7px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 6px;
+}
+
+.pm-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  position: relative; z-index: 2;
+}
+
+.pm-stat-desc {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  margin-top: 8px;
+  line-height: 1.6;
+  position: relative; z-index: 2;
+}
+
+.pm-stat-desc-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+  direction: rtl;
+  text-align: right;
+  position: relative; z-index: 2;
+}
+
+/* Post type 4: Services */
+.pm-services {
+  padding: 28px 24px;
+}
+
+.pm-services-title {
+  font-size: 7px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(196,113,122,0.2);
+  margin-bottom: 18px;
+}
+
+.pm-service-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.pm-service-row:last-child { border-bottom: none; }
+
+.pm-service-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+  flex-shrink: 0;
+}
+
+.pm-service-en {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.pm-service-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* Post type 5: Quote */
+.pm-quote {
+  padding: 36px 28px;
+  background: #0a0a0a;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pm-quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  color: rgba(196,113,122,0.06);
+  position: absolute;
+  top: -20px; left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.pm-quote-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.6;
+  position: relative; z-index: 2;
+}
+
+.pm-quote-line {
+  width: 24px; height: 1px;
+  background: var(--rose);
+  margin: 16px auto;
+  position: relative; z-index: 2;
+}
+
+.pm-quote-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.35);
+  direction: rtl;
+  line-height: 1.9;
+  position: relative; z-index: 2;
+}
+
+.pm-quote-attr {
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-top: 14px;
+  position: relative; z-index: 2;
+}
+
+/* Post label badge */
+.post-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 7px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin: 0 20px 10px;
+  padding: 5px 12px;
+  border: 1px solid rgba(196,113,122,0.2);
+  border-radius: 20px;
+  background: rgba(196,113,122,0.05);
+}
+
+/* ════════════════════════════
+   SLIDE 5 — GRID PREVIEW
+════════════════════════════ */
+.s-grid { background: #050505; padding-bottom: 60px; }
+
+.grid-phone-wrap {
+  padding: 0 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.phone {
+  width: 100%;
+  max-width: 340px;
+  background: #111;
+  border-radius: 36px;
+  padding: 14px;
+  border: 1px solid #222;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+}
+
+.phone-notch {
+  width: 80px; height: 22px;
+  background: #111;
+  border-radius: 0 0 14px 14px;
+  margin: 0 auto 10px;
+  border: 1px solid #1e1e1e;
+  border-top: none;
+}
+
+.phone-screen {
+  background: #000;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.ig-header {
+  padding: 14px 14px 10px;
+  background: #000;
+}
+
+.ig-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ig-av {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--rose-dark);
+}
+
+.ig-sts {
+  display: flex;
+  gap: 14px;
+}
+
+.ig-st { text-align: center; }
+.ig-st-n { font-size: 13px; font-weight: 700; color: white; }
+.ig-st-l { font-size: 8px; color: #888; margin-top: 1px; }
+
+.ig-bio-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 3px;
+}
+
+.ig-bio-text {
+  font-size: 9px;
+  color: #888;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.ig-btn {
+  background: var(--rose);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 6px 0;
+  font-size: 10px;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+}
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: #111;
+}
+
+.ig-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ig-cell-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* Grid cell colors */
+.gc1 { background: #080808; }
+.gc2 { background: var(--rose-dark); }
+.gc3 { background: #F5EDE8; }
+.gc4 { background: #0f0f0f; }
+.gc5 { background: linear-gradient(135deg, #1a0e10, #2a1520); }
+.gc6 { background: #0f0f0f; }
+.gc7 { background: var(--rose); }
+.gc8 { background: #060606; }
+.gc9 { background: #0e0e0e; }
+
+/* Grid explanation */
+.grid-key {
+  padding: 24px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.grid-key-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gk-color {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+
+.gk-text { flex: 1; }
+.gk-en {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.gk-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  direction: rtl;
+  text-align: right;
+}
+
+/* ════════════════════════════
+   SLIDE 6 — TYPOGRAPHY
+════════════════════════════ */
+.s-typo { background: var(--black); padding-bottom: 60px; }
+
+.font-cards {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.font-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #1a1a1a;
+  padding: 28px 24px;
+}
+
+.font-role {
+  font-size: 7px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 14px;
+}
+
+.font-sample-1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.font-sample-1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose-light);
+}
+
+.font-sample-2 {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--cream);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.font-sample-2-body {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+}
+
+.font-sample-3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 200;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+}
+
+.font-name {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #333;
+  text-transform: uppercase;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #1a1a1a;
+}
+
+/* ════════════════════════════
+   SLIDE 7 — CLOSING
+════════════════════════════ */
+.s-close {
+  background: var(--black);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 28px;
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.close-glow {
+  position: absolute;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,61,69,0.3) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.close-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 11vw;
+  font-weight: 900;
+  line-height: 1;
+  position: relative; z-index: 2;
+}
+
+.close-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose);
+  display: block;
+}
+
+.close-sub {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  margin-top: 16px;
+  direction: rtl;
+  position: relative; z-index: 2;
+}
+
+.close-line {
+  width: 50px; height: 1px;
+  background: linear-gradient(to right, var(--rose), var(--gold));
+  margin: 24px auto;
+  position: relative; z-index: 2;
+}
+
+.close-tag {
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #2a2a2a;
+  position: relative; z-index: 2;
+}
+
+/* ════════════════════════════
+   BOTTOM NAV
+════════════════════════════ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 12px 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.nav-dots-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.ndot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.ndot.active {
+  background: var(--rose);
+  width: 18px;
+  border-radius: 3px;
+}
+
+.nav-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  transition: color 0.3s;
+}
+
+.nav-label.rose { color: var(--rose); }
+
+</style>
+</head>
+<body>
+
+<!-- Progress -->
+<div class="progress-bar" id="progress"></div>
+
+<div class="slides-wrap" id="slidesWrap">
+
+  <!-- ══ SLIDE 1: COVER ══ -->
+  <div class="slide s-cover active" id="sl0">
+    <div class="cover-noise"></div>
+    <div class="cover-glow"></div>
+    <div class="cover-ring"></div>
+    <div class="cover-ring cover-ring-2"></div>
+    <div class="cover-label">Brand Direction Proposal · 2025</div>
+    <div class="cover-name">
+      <em>Dr. Dina</em>
+      HASSANEN
+    </div>
+    <div class="cover-divider"></div>
+    <div class="cover-sub">Social Media Direction</div>
+    <div class="cover-tags">
+      <div class="cover-tag-pill">Magazine</div>
+      <div class="cover-tag-pill">Bold</div>
+      <div class="cover-tag-pill">Luxury</div>
+      <div class="cover-tag-pill">Feminine</div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-dot"></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 2: THE CONCEPT ══ -->
+  <div class="slide s-concept" id="sl1">
+    <div class="concept-visual">
+      <img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=800&q=80" alt="luxury clinic" />
+      <div class="concept-visual-overlay"></div>
+      <div class="concept-visual-text">
+        <div class="concept-visual-label">The Vision</div>
+        <div class="concept-visual-title">Magazine,<br>Not a Clinic Page</div>
+      </div>
+    </div>
+
+    <div class="sec-header" style="padding-top:28px;">
+      <div class="sec-num">01 — الـ Concept</div>
+      <div class="sec-title">الـ<em> Direction</em></div>
+      <div class="sec-desc">مش مجرد بوستات — ده تجربة مجلة راقية. الأكاونت بتاع دكتورة دينا هيبقى brand حقيقي مختلف عن أي دكتور تاني في مصر.</div>
+      <div class="sec-desc-en">Not posts, not a clinic feed — a luxury editorial magazine experience. Unmistakably Dr. Dina.</div>
+    </div>
+
+    <div class="cards-stack">
+      <div class="concept-card open" onclick="toggleCard(this)">
+        <div class="card-top">
+          <div class="card-icon">M</div>
+          <div class="card-title-wrap">
+            <div class="card-title-en">Magazine Grid</div>
+            <div class="card-title-ar">ستايل المجلة الراقية</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <div class="card-text-ar">كل ٩ بوستات بيكونوا spread واحد متكامل — لما حد يدخل الأكاونت، يشوف غلاف مجلة مش بوستات عادية. ده اللي بيخلي الناس توقف وتتفرج وتتابع.</div>
+            <div class="card-text-en">Every 9 posts form a complete magazine spread. When someone visits the profile, they see a cohesive editorial — impossible to scroll past.</div>
+            <div class="card-pills">
+              <div class="card-pill">9-Post Puzzle</div>
+              <div class="card-pill">Grid Layout</div>
+              <div class="card-pill">Editorial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-card" onclick="toggleCard(this)">
+        <div class="card-top">
+          <div class="card-icon">F</div>
+          <div class="card-title-wrap">
+            <div class="card-title-en">Bold & Feminine</div>
+            <div class="card-title-ar">جريء ونسائي في آن واحد</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <div class="card-text-ar">مش ناعم ومش طبي بارد. ألوان قوية وجريئة بتكلم الست اللي عارفة نفسها — زي Charlotte Tilbury وValentino Beauty. confidence حقيقية.</div>
+            <div class="card-text-en">Not soft, not clinical. Bold colors that speak to confident upper-class women — the way Charlotte Tilbury does.</div>
+            <div class="card-pills">
+              <div class="card-pill">Upper Class</div>
+              <div class="card-pill">Confident</div>
+              <div class="card-pill">Dramatic</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-card" onclick="toggleCard(this)">
+        <div class="card-top">
+          <div class="card-icon">✦</div>
+          <div class="card-title-wrap">
+            <div class="card-title-en">Differentiation</div>
+            <div class="card-title-ar">ليه ده مختلف؟</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <div class="card-text-ar">محدش في مصر بيعمل ده. كل الدكاترة التانيين عندهم نفس الستايل العادي — أحمر وأسود أو أبيض كليني. دكتورة دينا هتبقى الوحيدة اللي عندها brand حقيقي يتميز.</div>
+            <div class="card-text-en">Zero competitors in Egypt use this approach. Dr. Dina will own this space completely.</div>
+            <div class="card-pills">
+              <div class="card-pill">Unique</div>
+              <div class="card-pill">Ownable</div>
+              <div class="card-pill">Memorable</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 3: COLORS ══ -->
+  <div class="slide s-colors" id="sl2">
+    <div class="sec-header">
+      <div class="sec-num">02 — الـ Colors</div>
+      <div class="sec-title">الـ<em> Palette</em></div>
+      <div class="sec-desc">أسود كـ base قوي + Rose كـ feminine accent + ذهبي كـ luxury signature. الكومبو ده محدش بيستخدمه في المجال ده في مصر.</div>
+    </div>
+
+    <div class="palette-strip" id="paletteStrip">
+      <div class="ps big" style="background:#080808;" onclick="tapSwatch(this)">
+        <div class="ps-info">
+          <div class="ps-name" style="color:#555;">Obsidian</div>
+          <div class="ps-hex" style="color:#444;">#080808</div>
+        </div>
+      </div>
+      <div class="ps" style="background:#8B3D45;" onclick="tapSwatch(this)">
+        <div class="ps-info">
+          <div class="ps-name" style="color:#fff;">Deep Rose</div>
+          <div class="ps-hex" style="color:rgba(255,255,255,0.5);">#8B3D45</div>
+        </div>
+      </div>
+      <div class="ps big" style="background:#C4717A;" onclick="tapSwatch(this)">
+        <div class="ps-info">
+          <div class="ps-name" style="color:#fff;">Dusty Rose</div>
+          <div class="ps-hex" style="color:rgba(255,255,255,0.5);">#C4717A</div>
+        </div>
+      </div>
+      <div class="ps" style="background:#E8A0A8;" onclick="tapSwatch(this)">
+        <div class="ps-info">
+          <div class="ps-name" style="color:#8B3D45;">Blush</div>
+          <div class="ps-hex" style="color:rgba(139,61,69,0.7);">#E8A0A8</div>
+        </div>
+      </div>
+      <div class="ps" style="background:#C9A84C;" onclick="tapSwatch(this)">
+        <div class="ps-info">
+          <div class="ps-name" style="color:#fff;">Gold</div>
+          <div class="ps-hex" style="color:rgba(255,255,255,0.5);">#C9A84C</div>
+        </div>
+      </div>
+      <div class="ps" style="background:#F5EDE8;" onclick="tapSwatch(this)">
+        <div class="ps-info">
+          <div class="ps-name" style="color:#8a7a6a;">Cream</div>
+          <div class="ps-hex" style="color:#9a8a7a;">#F5EDE8</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 10px 20px 4px; font-size:9px; letter-spacing:2px; color:#333; text-transform:uppercase; text-align:center;">
+      ← اضغط على أي لون عشان تشوف اسمه
+    </div>
+
+    <div class="color-cards">
+      <div class="color-card">
+        <div class="cc-bar" style="background:#080808;"></div>
+        <div class="cc-body">
+          <div class="cc-name" style="color:#fff;">Black</div>
+          <div class="cc-hex">#080808</div>
+          <div class="cc-desc-ar">الخلفية الأساسية — بيديه الـ depth والـ luxury اللي إحنا بندور عليه</div>
+          <div class="cc-pct" style="color:#1e1e1e;">60<span style="font-size:12px;">%</span></div>
+          <div class="cc-pct-label">Usage</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="cc-bar" style="background:#C4717A;"></div>
+        <div class="cc-body">
+          <div class="cc-name" style="color:#C4717A;">Rose</div>
+          <div class="cc-hex">#C4717A</div>
+          <div class="cc-desc-ar">الـ accent الأساسي — هو اللي بيديه الـ feminine touch القوي</div>
+          <div class="cc-pct" style="color:#C4717A;">25<span style="font-size:12px;">%</span></div>
+          <div class="cc-pct-label">Usage</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="cc-bar" style="background:#C9A84C;"></div>
+        <div class="cc-body">
+          <div class="cc-name" style="color:#C9A84C;">Gold</div>
+          <div class="cc-hex">#C9A84C</div>
+          <div class="cc-desc-ar">التفاصيل الـ luxury الصغيرة — زي توقيع الـ brand</div>
+          <div class="cc-pct" style="color:#C9A84C;">10<span style="font-size:12px;">%</span></div>
+          <div class="cc-pct-label">Usage</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="cc-bar" style="background:#F5EDE8;"></div>
+        <div class="cc-body">
+          <div class="cc-name" style="color:#5a4a40;">Cream</div>
+          <div class="cc-hex">#F5EDE8</div>
+          <div class="cc-desc-ar">النصوص والخلايا الفاتحة — بيكسر الـ darkness بدفا</div>
+          <div class="cc-pct" style="color:#c0b0a8;">5<span style="font-size:12px;">%</span></div>
+          <div class="cc-pct-label">Usage</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="combo-strip" style="margin-top:16px;">
+      <div class="combo-item" style="background:#080808;border:1px solid #1a1a1a;">
+        <div class="combo-item-text" style="color:#C4717A;">Dr. Dina</div>
+      </div>
+      <div class="combo-item" style="background:#8B3D45;">
+        <div class="combo-item-text" style="color:#F5EDE8;font-size:13px;">DINA MD</div>
+      </div>
+      <div class="combo-item" style="background:#080808;border:1px solid #1a1a1a;">
+        <div class="combo-item-text" style="color:#C9A84C;font-style:italic;font-family:'Playfair Display',serif;">Beauty</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 4: POST MOCKUPS ══ -->
+  <div class="slide s-posts" id="sl3">
+    <div class="sec-header">
+      <div class="sec-num">03 — الـ Posts</div>
+      <div class="sec-title">شكل الـ<em> Posts</em></div>
+      <div class="sec-desc">كل نوع بوست ليه دور في الـ magazine spread — غلاف، بيفور وآفتر، معلومات، quote. مع بعض بيبنوا تجربة متكاملة.</div>
+    </div>
+
+    <div class="posts-carousel">
+
+      <!-- TYPE 1: Magazine Cover Post -->
+      <div class="post-type-badge">📖 Magazine Cover Post</div>
+      <div class="post-mock">
+        <div class="pm-cover">
+          <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80" alt="aesthetic" />
+          <div class="pm-cover-overlay"></div>
+          <div class="pm-header">
+            <div class="pm-logo">Dr. Dina Hassanen</div>
+            <div class="pm-issue">Issue 01 · 2025</div>
+          </div>
+          <div class="pm-content">
+            <div class="pm-tag-label">The New Era</div>
+            <div class="pm-big-title">Aesthetic<br><em>Medicine</em></div>
+            <div class="pm-caption">رحلة الجمال بتبدأ هنا — مع دكتورة دينا حسانين</div>
+          </div>
+        </div>
+        <div class="pm-footer">
+          <div>
+            <div class="pm-proc">Magazine Cover</div>
+            <div class="pm-proc-ar">غلاف المجلة</div>
+          </div>
+          <div class="pm-handle">@DrDinaHassanen</div>
+        </div>
+      </div>
+
+      <!-- TYPE 2: Before & After Post -->
+      <div class="post-type-badge">✦ Before & After Post</div>
+      <div class="post-mock">
+        <div class="pm-ba">
+          <div class="pm-ba-half">
+            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=400&q=80" alt="before" />
+            <div class="pm-ba-half-overlay-before"></div>
+            <div class="pm-ba-tag before">Before</div>
+            <div class="pm-ba-label before">B</div>
+          </div>
+          <div class="pm-ba-divider"></div>
+          <div class="pm-ba-center">
+            <div class="pm-ba-badge">DH</div>
+          </div>
+          <div class="pm-ba-half">
+            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=400&q=80" alt="after" style="filter:saturate(1.1) brightness(1.1);" />
+            <div class="pm-ba-half-overlay-after"></div>
+            <div class="pm-ba-tag after">After</div>
+            <div class="pm-ba-label after">A</div>
+          </div>
+        </div>
+        <div class="pm-footer">
+          <div>
+            <div class="pm-proc">Breast Surgery</div>
+            <div class="pm-proc-ar">جراحة الثدي</div>
+          </div>
+          <div class="pm-handle">@DrDinaHassanen</div>
+        </div>
+      </div>
+
+      <!-- TYPE 3: Stat Post -->
+      <div class="post-type-badge">📊 Results / Stat Post</div>
+      <div class="post-mock">
+        <div class="pm-stat">
+          <div class="pm-stat-eyebrow">Success Rate</div>
+          <div class="pm-stat-num">500<span style="font-size:24px;font-weight:300;">+</span></div>
+          <div class="pm-stat-desc">Successful procedures & satisfied patients</div>
+          <div class="pm-stat-desc-ar">أكثر من ٥٠٠ حالة ناجحة</div>
+        </div>
+        <div class="pm-footer" style="background:#080808;">
+          <div>
+            <div class="pm-proc">Results</div>
+            <div class="pm-proc-ar">النتائج بتتكلم</div>
+          </div>
+          <div class="pm-handle">@DrDinaHassanen</div>
+        </div>
+      </div>
+
+      <!-- TYPE 4: Services Post -->
+      <div class="post-type-badge">◈ Services Post</div>
+      <div class="post-mock">
+        <div class="pm-services">
+          <div class="pm-services-title">Our Specialties · تخصصاتنا</div>
+          <div class="pm-service-row">
+            <div class="pm-service-dot"></div>
+            <div class="pm-service-en">Breast Surgery</div>
+            <div class="pm-service-ar">جراحة الثدي</div>
+          </div>
+          <div class="pm-service-row">
+            <div class="pm-service-dot" style="opacity:0.8;"></div>
+            <div class="pm-service-en">Liposuction</div>
+            <div class="pm-service-ar">شفط الدهون</div>
+          </div>
+          <div class="pm-service-row">
+            <div class="pm-service-dot" style="opacity:0.6;"></div>
+            <div class="pm-service-en">Botox & Fillers</div>
+            <div class="pm-service-ar">بوتوكس وفيلر</div>
+          </div>
+          <div class="pm-service-row">
+            <div class="pm-service-dot" style="opacity:0.4;"></div>
+            <div class="pm-service-en">Skin Booster</div>
+            <div class="pm-service-ar">سكن بوستر</div>
+          </div>
+          <div class="pm-service-row">
+            <div class="pm-service-dot" style="opacity:0.3;"></div>
+            <div class="pm-service-en">Aesthetic Gynecology</div>
+            <div class="pm-service-ar">التجميل النسائي</div>
+          </div>
+        </div>
+        <div class="pm-footer">
+          <div>
+            <div class="pm-proc">Services</div>
+            <div class="pm-proc-ar">الخدمات</div>
+          </div>
+          <div class="pm-handle">@DrDinaHassanen</div>
+        </div>
+      </div>
+
+      <!-- TYPE 5: Quote Post -->
+      <div class="post-type-badge">❝ Quote / Brand Post</div>
+      <div class="post-mock">
+        <div class="pm-quote">
+          <div class="pm-quote-mark">"</div>
+          <div class="pm-quote-text">"Beauty is not a destination — it's a journey of self-discovery."</div>
+          <div class="pm-quote-line"></div>
+          <div class="pm-quote-ar">الجمال مش وجهة — هو رحلة اكتشاف لأجمل نسخة منك</div>
+          <div class="pm-quote-attr">Dr. Dina Hassanen</div>
+        </div>
+        <div class="pm-footer">
+          <div>
+            <div class="pm-proc">Brand Voice</div>
+            <div class="pm-proc-ar">صوت الـ Brand</div>
+          </div>
+          <div class="pm-handle">@DrDinaHassanen</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 5: GRID PREVIEW ══ -->
+  <div class="slide s-grid" id="sl4">
+    <div class="sec-header">
+      <div class="sec-num">04 — الـ Grid</div>
+      <div class="sec-title">الـ Profile<em> View</em></div>
+      <div class="sec-desc">لما حد يدخل على أكاونت دكتورة دينا — ده اللي هيشوفه. مش دكتور، magazine.</div>
+    </div>
+
+    <div class="grid-phone-wrap">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="ig-header">
+            <div class="ig-top">
+              <div class="ig-av">DH</div>
+              <div class="ig-sts">
+                <div class="ig-st"><div class="ig-st-n">847</div><div class="ig-st-l">Posts</div></div>
+                <div class="ig-st"><div class="ig-st-n">52.4K</div><div class="ig-st-l">Followers</div></div>
+                <div class="ig-st"><div class="ig-st-n">312</div><div class="ig-st-l">Following</div></div>
+              </div>
+            </div>
+            <div class="ig-bio-name">Dr. Dina Hassanen 🌹</div>
+            <div class="ig-bio-text">Plastic & Laser Surgeon ✨<br>Cairo · Beauty is a journey<br>📍 Book your consultation ↓</div>
+            <button class="ig-btn">Follow</button>
+          </div>
+          <div class="ig-grid">
+            <div class="ig-cell gc1"><div class="ig-cell-text" style="color:rgba(196,113,122,0.35);font-size:18px;">01</div></div>
+            <div class="ig-cell gc2"><div class="ig-cell-text" style="color:rgba(255,255,255,0.7);font-size:12px;">DINA<br>MD</div></div>
+            <div class="ig-cell gc3"><div class="ig-cell-text" style="color:#8B3D45;font-size:7px;letter-spacing:1px;">IN THIS<br>ISSUE</div></div>
+            <div class="ig-cell gc4"><div class="ig-cell-text" style="color:rgba(255,255,255,0.1);font-size:8px;letter-spacing:1px;">BEFORE</div></div>
+            <div class="ig-cell gc5"><div class="ig-cell-text" style="color:rgba(196,113,122,0.5);font-size:13px;">DH</div></div>
+            <div class="ig-cell gc6"><div class="ig-cell-text" style="color:rgba(196,113,122,0.25);font-size:8px;letter-spacing:1px;">AFTER</div></div>
+            <div class="ig-cell gc7"><div class="ig-cell-text" style="color:rgba(255,255,255,0.8);font-size:15px;">500+</div></div>
+            <div class="ig-cell gc8"><div class="ig-cell-text" style="color:rgba(245,237,232,0.25);font-size:7px;font-style:italic;font-family:'Playfair Display',serif;">"Beauty<br>is a<br>journey"</div></div>
+            <div class="ig-cell gc9">
+              <div style="display:flex;flex-direction:column;gap:3px;align-items:center;">
+                <div style="width:4px;height:4px;border-radius:50%;background:#C4717A;"></div>
+                <div style="width:4px;height:4px;border-radius:50%;background:#C4717A;opacity:0.4;"></div>
+                <div style="width:4px;height:4px;border-radius:50%;background:#C4717A;opacity:0.15;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-key">
+      <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#333;margin-bottom:4px;padding: 0 0;">Key</div>
+      <div class="grid-key-item">
+        <div class="gk-color" style="background:#8B3D45;"></div>
+        <div class="gk-text">
+          <div class="gk-en">Magazine Title Cell</div>
+          <div class="gk-ar">خلية اسم المجلة</div>
+        </div>
+      </div>
+      <div class="grid-key-item">
+        <div class="gk-color" style="background:#0f0f0f;border:1px solid #2a2a2a;"></div>
+        <div class="gk-text">
+          <div class="gk-en">Before & After Photos</div>
+          <div class="gk-ar">خلايا الصور</div>
+        </div>
+      </div>
+      <div class="grid-key-item">
+        <div class="gk-color" style="background:#C4717A;"></div>
+        <div class="gk-text">
+          <div class="gk-en">Stats / Results Cell</div>
+          <div class="gk-ar">خلية الأرقام والنتائج</div>
+        </div>
+      </div>
+      <div class="grid-key-item">
+        <div class="gk-color" style="background:#F5EDE8;"></div>
+        <div class="gk-text">
+          <div class="gk-en">In This Issue / Contents</div>
+          <div class="gk-ar">خلية المحتوى</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 6: TYPOGRAPHY ══ -->
+  <div class="slide s-typo" id="sl5">
+    <div class="sec-header">
+      <div class="sec-num">05 — الـ Fonts</div>
+      <div class="sec-title">الـ<em> Typography</em></div>
+      <div class="sec-desc">تلات فونتس بيكملوا بعض — Playfair للـ headlines الجريئة، Tajawal للعربي الراقي، Montserrat للتفاصيل.</div>
+    </div>
+
+    <div class="font-cards">
+      <div class="font-card" style="background:#0e0e0e;">
+        <div class="font-role">Headlines & Display</div>
+        <div class="font-sample-1">Playfair<br><em>Display</em></div>
+        <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.2);margin-top:8px;letter-spacing:0.5px;">ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789</div>
+        <div class="font-name">Playfair Display · Bold, Black, Italic</div>
+      </div>
+
+      <div class="font-card" style="background:#0a0a0a;">
+        <div class="font-role">Arabic Text</div>
+        <div class="font-sample-2">دكتورة دينا<br>حسانين</div>
+        <div class="font-sample-2-body">الجمال مش وجهة — ده رحلة اكتشاف لأجمل نسخة منك</div>
+        <div class="font-name" style="direction:rtl;text-align:right;">Tajawal · Light, Regular, Bold</div>
+      </div>
+
+      <div class="font-card" style="background:#0c0c0c;">
+        <div class="font-role">Labels & UI</div>
+        <div class="font-sample-3">MONTSERRAT</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:4px;color:rgba(255,255,255,0.2);text-transform:uppercase;">@DRDINAHASSANEN · CAIRO · EGYPT</div>
+        <div class="font-name">Montserrat · Thin, Light, Regular</div>
+      </div>
+
+      <div class="font-card" style="background:var(--rose-dark);">
+        <div class="font-role" style="color:rgba(255,255,255,0.5);">Quotes & Signature</div>
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:28px;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.3;">"Beauty is<br>a journey."</div>
+        <div style="font-family:'Playfair Display',serif;font-size:11px;color:rgba(255,255,255,0.4);margin-top:8px;font-style:italic;letter-spacing:1px;">— Dr. Dina Hassanen</div>
+        <div class="font-name" style="border-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.2);">Cormorant Garamond · Light Italic</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 7: CLOSING ══ -->
+  <div class="slide s-close" id="sl6">
+    <div class="close-glow"></div>
+    <div class="close-title">
+      Ready to<br><em>Redefine</em><br>the Brand?
+    </div>
+    <div class="close-line"></div>
+    <div class="close-sub">جاهزين نبدأ؟ 🌹</div>
+    <div class="close-tag">Dr. Dina Hassanen · Brand Direction 2025</div>
+  </div>
+
+</div><!-- end slides-wrap -->
+
+<!-- Bottom Nav -->
+<div class="bottom-nav">
+  <div class="nav-dots-row" id="navDots">
+    <div class="ndot active" onclick="goTo(0)"></div>
+    <div class="ndot" onclick="goTo(1)"></div>
+    <div class="ndot" onclick="goTo(2)"></div>
+    <div class="ndot" onclick="goTo(3)"></div>
+    <div class="ndot" onclick="goTo(4)"></div>
+    <div class="ndot" onclick="goTo(5)"></div>
+    <div class="ndot" onclick="goTo(6)"></div>
+  </div>
+  <div class="nav-label" id="navLabel">Cover</div>
+</div>
+
+<script>
+const labels = ['Cover','الـ Concept','الـ Colors','الـ Posts','الـ Grid','الـ Fonts','Ready?'];
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.ndot');
+const navLabel = document.getElementById('navLabel');
+const progress = document.getElementById('progress');
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('active');
+      // Update nav
+      const idx = Array.from(slides).indexOf(e.target);
+      if (idx !== -1) updateNav(idx);
+    }
+  });
+}, { threshold: 0.3 });
+
+slides.forEach(s => observer.observe(s));
+
+function updateNav(idx) {
+  dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  navLabel.textContent = labels[idx];
+  navLabel.classList.toggle('rose', idx > 0);
+  // Progress
+  const pct = (idx / (slides.length - 1)) * 100;
+  progress.style.width = pct + '%';
+}
+
+function goTo(idx) {
+  slides[idx].scrollIntoView({ behavior: 'smooth' });
+}
+
+// Accordion cards
+function toggleCard(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.concept-card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+// Swatch tap
+function tapSwatch(el) {
+  document.querySelectorAll('.ps').forEach(p => p.classList.remove('tapped'));
+  el.classList.add('tapped');
+  setTimeout(() => el.classList.remove('tapped'), 2000);
+}
+
+// First slide always visible
+slides[0].classList.add('active');
+</script>
+</body>
+</html>
